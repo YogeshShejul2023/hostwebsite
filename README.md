@@ -19,12 +19,6 @@ This project demonstrates how to deploy a static website using Docker containers
 - Website: Static HTML/CSS
 
 ---
-
-## 🧱 Architecture
-
-
----
-
 ## 🔹 Step 1: Create Cloud VM
 
 - Create free-tier account (AWS / GCP / Azure)
@@ -49,7 +43,7 @@ sudo apt install docker.io -y
 sudo systemctl start docker
 sudo systemctl enable docker
 docker --version
-🔹 Step 4: Download Website Template
+##🔹 Step 4: Download Website Template
 Template used:
 
 2153_fireworks_composer
@@ -58,7 +52,7 @@ Source: https://lnkd.in/dDbT3HPK
 unzip 2153_fireworks_composer.zip
 mkdir website
 mv 2153_fireworks_composer/* website/
-🔹 Step 5: Run NGINX Container
+##🔹 Step 5: Run NGINX Container
 docker run -d \
   --name nginx-website \
   -p 80:80 \
@@ -66,7 +60,7 @@ docker run -d \
   nginx
 
 docker ps
-🔹 Step 6: Verify Website
+##🔹 Step 6: Verify Website
 Open browser:
 http://<VM_PUBLIC_IP>:80
 ✅ Website successfully live using Docker + NGINX
