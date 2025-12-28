@@ -1,32 +1,72 @@
-# hostwebsite
-🚀 CLOUD + DOCKER + NGINX | HANDS-ON PRACTICAL PROJECT
-✨ Perfect for DevOps Beginners
-🔹 Step 1 – Choose a Cloud Provider
-☁️ AWS / GCP / Azure
-🆓 Created a free-tier/trial account
-🔹 Step 2 – Create a Virtual Machine
-🖥️ Ubuntu 24.04 LTS
-⚙️ 1–2 vCPU | 2–4 GB RAM
-🌐 Enabled HTTP (Port 80)
-🔐 Connected via SSH
-🔹 Step 3 – Install Docker
-🐳 Updated packages & installed Docker
-✅ Verified Docker version and service status
-🔹 Step 4 – Download HTML Template
-🎨 Used a free website template
-📁 2153_fireworks_composer (https://lnkd.in/dDbT3HPK)
-📦 Downloaded, unzipped, and prepared files
-🔹 Step 5 – Run NGINX in Docker
-📌 Run NGINX container
-📂 Mounted website files using Docker volumes
-🔁 Mapped container port 80 to host port 80
-🔹 Step 6 – Verify the Website
-🌍 Accessed via browser
-👉 http://136.119.132.73:80
-🎉 Website successfully live using Docker + NGINX
-📚 What I Learned:
-✅ Cloud VM setup
-✅ Docker container fundamentals
-✅ Volume mounting in Docker
-✅ Hosting static websites with NGINX
-🚀 Building strong DevOps fundamentals, one practical step at a time!
+# 🚀 Cloud + Docker + NGINX | Static Website Hosting
+
+A hands-on DevOps beginner project to host a **static website** on a **cloud virtual machine** using **Docker** and **NGINX**.
+
+---
+
+## 📌 Project Overview
+
+This project demonstrates how to deploy a static website using Docker containers on a cloud VM (AWS / GCP / Azure).
+
+---
+
+## 🛠️ Tech Stack
+
+- Cloud: AWS / GCP / Azure
+- OS: Ubuntu 24.04 LTS
+- Container: Docker
+- Web Server: NGINX
+- Website: Static HTML/CSS
+
+---
+
+## 🧱 Architecture
+
+
+---
+
+## 🔹 Step 1: Create Cloud VM
+
+- Create free-tier account (AWS / GCP / Azure)
+- Launch Ubuntu 24.04 VM
+- Configure:
+  - 1–2 vCPU
+  - 2–4 GB RAM
+  - Allow ports:
+    - SSH (22)
+    - HTTP (80)
+
+---
+
+## 🔹 Step 2: Connect to VM
+
+```bash
+ssh username@<PUBLIC_IP>
+sudo apt update && sudo apt upgrade -y
+
+##🔹 Step 3: Install Docker
+sudo apt install docker.io -y
+sudo systemctl start docker
+sudo systemctl enable docker
+docker --version
+🔹 Step 4: Download Website Template
+Template used:
+
+2153_fireworks_composer
+
+Source: https://lnkd.in/dDbT3HPK
+unzip 2153_fireworks_composer.zip
+mkdir website
+mv 2153_fireworks_composer/* website/
+🔹 Step 5: Run NGINX Container
+docker run -d \
+  --name nginx-website \
+  -p 80:80 \
+  -v $(pwd)/website:/usr/share/nginx/html \
+  nginx
+
+docker ps
+🔹 Step 6: Verify Website
+Open browser:
+http://<VM_PUBLIC_IP>:80
+✅ Website successfully live using Docker + NGINX
