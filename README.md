@@ -37,12 +37,13 @@ This project demonstrates how to deploy a static website using Docker containers
 ```bash
 ssh username@<PUBLIC_IP>
 sudo apt update && sudo apt upgrade -y
-
+---
 ##🔹 Step 3: Install Docker
 sudo apt install docker.io -y
 sudo systemctl start docker
 sudo systemctl enable docker
 docker --version
+---
 ##🔹 Step 4: Download Website Template
 Template used:
 
@@ -52,6 +53,7 @@ Source: https://lnkd.in/dDbT3HPK
 unzip 2153_fireworks_composer.zip
 mkdir website
 mv 2153_fireworks_composer/* website/
+---
 ##🔹 Step 5: Run NGINX Container
 docker run -d \
   --name nginx-website \
@@ -60,7 +62,9 @@ docker run -d \
   nginx
 
 docker ps
+---
 ##🔹 Step 6: Verify Website
 Open browser:
 http://<VM_PUBLIC_IP>:80
 ✅ Website successfully live using Docker + NGINX
+---
